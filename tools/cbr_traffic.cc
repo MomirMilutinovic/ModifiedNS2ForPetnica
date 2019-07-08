@@ -47,6 +47,7 @@ CBR_Traffic::CBR_Traffic() : seqno_(0)
 	bind("random_", &random_);
 	bind("packetSize_", &size_);
 	bind("maxpkts_", &maxpkts_);
+	bind("seqno_", &seqno_);
 }
 
 void CBR_Traffic::init()
@@ -66,6 +67,16 @@ void CBR_Traffic::start()
         timeout();
 }
 
+void CBR_Traffic::stop()
+{
+	if (running_)
+		timer_.cancel();
+	running_ = 0;
+	maxpkts_ = seqno_;
+	printf("Ending at %d maxpkts", maxpkts_);
+}
+
+
 double CBR_Traffic::next_interval(int& size)
 {
 	// Recompute interval in case rate_ or size_ has changes
@@ -74,9 +85,11 @@ double CBR_Traffic::next_interval(int& size)
 	if (random_)
 		t += interval_ * Random::uniform(-0.5, 0.5);	
 	size = size_;
+	printf("CBR SEQNO %d MAXPKTS %d \n", seqno_, maxpkts_);
 	if (++seqno_ < maxpkts_)
 		return(t);
 	else
 		return(-1); 
 }
+
 

@@ -19,14 +19,18 @@ class CBR_Traffic : public TrafficGenerator {
 	inline double interval() { return (interval_); }
     void setmaxpkts(int maxpkts){maxpkts_ = maxpkts;} //sets maxpkts_
 	int getmaxpkts(){return maxpkts_;} //gets maxpkts_
+    void setNumberOfPacketsToSend(int numberOfPacksToSend){numberOfPacketsToSend = numberOfPacksToSend;} //sets 
+	int getNumberOfPacketsToSend(){return numberOfPacketsToSend;} //gets maxpkts_
  protected:
 	virtual void start();
+    virtual void stop();
 	void init();
 	double rate_;     /* send rate during on time (bps) */
 	double interval_; /* packet inter-arrival time during burst (sec) */
 	double random_;
 	int seqno_;
 	int maxpkts_;
+    int numberOfPacketsToSend;
 };
 
 

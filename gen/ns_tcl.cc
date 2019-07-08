@@ -19207,6 +19207,7 @@ Application/Traffic/CBR set rate_ 448Kb	;# corresponds to interval of 3.75ms\n\
 Application/Traffic/CBR set packetSize_ 210\n\
 Application/Traffic/CBR set random_ 0\n\
 Application/Traffic/CBR set maxpkts_ 268435456; # 0x10000000\n\
+Application/Traffic/CBR set numberOfPacketsToSend 0; #added a place to keep how many packets to send in CBR\n\
 \n\
 Application/Telnet set interval_ 1.0\n\
 \n\

@@ -51,6 +51,7 @@
  * "window" parameter should be less than MWM/2.
  */
 
+
 class TcpSink;
 class Acker {
 public:
@@ -96,6 +97,8 @@ protected:
 	void trace(TracedVar*);
 };
 
+class CBR_Traffic;
+
 class TcpSink : public Agent {
 	friend class XcpSink;
 public:
@@ -130,6 +133,8 @@ protected:
 				/* from previous incarnations */
         int ecn_syn_;           /* allow SYN/ACK packets to be ECN-capable */
 	int recvdPackets; //Counts recived packets, added by me
+	CBR_Traffic* connectedCBR; //Store the connected cbr so it can stopped
+
 
 };
 

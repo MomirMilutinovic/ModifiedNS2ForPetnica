@@ -376,6 +376,7 @@ void TcpSink::add_to_ack(Packet*)
 void TcpSink::recv(Packet* pkt, Handler*)
 {
 	recvdPackets++; //increment packet counter because we received a packet
+	
 	int numToDeliver;
 	int numBytes = hdr_cmn::access(pkt)->size();
 	// number of bytes in the packet just received
