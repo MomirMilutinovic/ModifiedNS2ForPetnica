@@ -492,6 +492,7 @@ Application/Traffic/CBR set packetSize_ 210
 Application/Traffic/CBR set random_ 0
 Application/Traffic/CBR set maxpkts_ 268435456; # 0x10000000
 Application/Traffic/CBR set numberOfPacketsToSend 0; #added a place to keep how many packets to send in CBR
+Application/Traffic/CBR set seqno_ 0
 
 Application/Telnet set interval_ 1.0
 
